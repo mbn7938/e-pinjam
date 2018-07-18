@@ -58,6 +58,9 @@ $config = [
             'class' => 'amnah\yii2\user\Module',
             // set custom module properties here ...
         ],
+        'utility' => [
+            'class' => 'c006\utility\migration\Module',
+        ],
     ],
     'params' => $params,
 ];
