@@ -7,6 +7,7 @@ use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\Dropdown;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -38,10 +39,17 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Pengurusan Peralatan', 'url' => ['/asset-logistic/index']],
-            ['label' => 'Pengurusan Jenis Peralatan', 'url' => ['/asset-type/index']],
-            ['label' => 'Pengurusan Sewaan', 'url' => ['/rent-transaction/index']],
-            ['label' => 'Pengurusan Status', 'url' => ['/status/index']],
+            Yii::$app->user->isGuest ? "" : (
+                [
+                    'label' => 'Menu',
+                    'items' => [
+                        ['label' => 'Pengurusan Peralatan', 'url' => ['/asset-logistic/index']],
+                        ['label' => 'Pengurusan Jenis Peralatan', 'url' => ['/asset-type/index']],
+                        ['label' => 'Pengurusan Sewaan', 'url' => ['/rent-transaction/index']],
+                        ['label' => 'Pengurusan Status', 'url' => ['/status/index']],
+                    ],
+                ]
+            ),
             Yii::$app->user->isGuest ? (
                 ['label' => 'Log Masuk', 'url' => ['/user/login']]
 
@@ -59,7 +67,6 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

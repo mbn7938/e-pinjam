@@ -29,9 +29,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'user_id',
-            'asset_id',
-            'status_id',
+            [
+                'attribute' => 'user_id',
+                'label' => 'Peminjam',
+                'value' => function($model){
+                    return $model->user->username;
+                }
+            ],
+            [
+                    'attribute' => 'asset_id',
+                    'label' => 'Aset',
+                    'value' => function($model){
+                        return $model->asset->name;
+                    }
+            ],
+            [
+                'attribute' => 'status_id',
+                'label' => 'Status',
+                'value' => function($model){
+                    return $model->status->name;
+                }
+            ],
             'created_at',
             'updated_at',
         ],

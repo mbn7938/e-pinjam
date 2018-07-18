@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\RentTransactionSearch */
@@ -19,6 +20,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a(Yii::t('app', 'Create Rent Transaction'), ['create'], ['class' => 'btn btn-success']) ?>
+
+        <?= Html::a(Yii::t('app', 'Approval'), ['/rent-transaction-approval/index'], ['class' => 'btn btn-info pull-right']) ?>
     </p>
 
     <?= GridView::widget([
@@ -26,8 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-
             [
                 'attribute' => 'user_id',
                 'label' => 'Nama Peminjam',

@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+    <?= $form->field($model, 'user_id')->textInput(['value' => Yii::$app->user->identity->username, 'disabled' => 'disabled']) ?>
 
     <?= $form->field($model, 'asset_id')
         ->dropDownList(\app\models\AssetLogistic::AsetDropdown(),

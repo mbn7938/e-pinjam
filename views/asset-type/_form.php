@@ -16,7 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status_id')->textInput() ?>
+    <?= $form->field($model, 'status_id')
+        ->dropDownList(\app\models\Status::StatusDropdown(),
+            [
+                'prompt' => Yii::t('app', 'Pilih Status'),
+
+            ])
+    ?>
 
 
 

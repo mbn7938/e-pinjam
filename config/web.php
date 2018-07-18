@@ -4,6 +4,7 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
+    'name' => 'E-Pinjam',
     'timezone' =>"Asia/Kuala_Lumpur",
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
