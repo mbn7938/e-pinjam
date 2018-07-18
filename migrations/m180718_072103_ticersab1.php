@@ -35,8 +35,8 @@ class m180718_072103_ticersab1 extends Migration
 
 
         $this->execute('SET foreign_key_checks = 0');
-        $this->insert('{{%seksyen}}',['id'=>'1','name'=>'Seksyen Aplikasi 2','short_term'=>'PRIMER','created_at'=>'2018-07-18 15:17:58','updated_at'=>'0000-00-00 00:00:00','id_bahagian'=>'1']);
-        $this->insert('{{%seksyen}}',['id'=>'2','name'=>'Seksyen Aplikasi 1','short_term'=>'NEWSS','created_at'=>'2018-07-18 15:17:58','updated_at'=>'0000-00-00 00:00:00','id_bahagian'=>'1']);
+        $this->insert('{{%seksyen}}',['name'=>'Seksyen Aplikasi 2','short_term'=>'PRIMER','created_at'=>'2018-07-18 15:17:58','updated_at'=>'0000-00-00 00:00:00','id_bahagian'=>'1']);
+        $this->insert('{{%seksyen}}',['name'=>'Seksyen Aplikasi 1','short_term'=>'NEWSS','created_at'=>'2018-07-18 15:17:58','updated_at'=>'0000-00-00 00:00:00','id_bahagian'=>'1']);
         $this->execute('SET foreign_key_checks = 1;');
     }
 

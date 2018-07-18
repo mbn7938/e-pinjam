@@ -3,15 +3,16 @@
 use yii\db\Migration;
 
 /**
- * Class m180718_074017_suhanatahir
+ * Class m180718_072104_test
  */
-class m180718_074017_suhanatahir extends Migration
+class m180718_072104_test extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
+
         $tables = Yii::$app->db->schema->getTableNames();
         $dbType = $this->db->driverName;
         $tableOptions_mysql = "CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB";
@@ -19,25 +20,24 @@ class m180718_074017_suhanatahir extends Migration
         $tableOptions_pgsql = "";
         $tableOptions_sqlite = "";
         /* MYSQL */
-        if (!in_array('unit', $tables))  {
+        if (!in_array('bahagian', $tables))  {
             if ($dbType == "mysql") {
-                $this->createTable('{{%unit}}', [
+                $this->createTable('{{%bahagian}}', [
                     'id' => 'INT(11) NOT NULL AUTO_INCREMENT',
                     0 => 'PRIMARY KEY (`id`)',
-                    'name' => 'VARCHAR(255) NOT NULL',
-                    'short_term' => 'VARCHAR(255) NOT NULL',
-                    'created_at' => 'TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ',
-                    'updates_at' => 'TIMESTAMP NOT NULL DEFAULT \'0000-00-00 00:00:00\'',
-                    'id_seksyen' => 'INT(11) NOT NULL',
+                    'name' => 'VARCHAR(150) NOT NULL',
+                    'short_term' => 'VARCHAR(150) NOT NULL',
+                    'created_at' => 'DATETIME NOT NULL',
+                    'updated_at' => 'DATETIME NOT NULL',
                 ], $tableOptions_mysql);
             }
         }
 
 
         $this->execute('SET foreign_key_checks = 0');
-        $this->insert('{{%unit}}',['name'=>'Unit Pengurusan Aset','short_term'=>'UPA','created_at'=>'2018-07-18 15:37:43','updates_at'=>'0000-00-00 00:00:00','id_seksyen'=>'1']);
-        $this->insert('{{%unit}}',['name'=>'Unit Sokongan Teknikal','short_term'=>'UTK','created_at'=>'2018-07-18 15:37:43','updates_at'=>'0000-00-00 00:00:00','id_seksyen'=>'2']);
+        $this->insert('{{%bahagian}}',['name'=>'Bahagian Pengurusan Maklumat','short_term'=>'BPM','created_at'=>'0000-00-00 00:00:00','updated_at'=>'0000-00-00 00:00:00']);
         $this->execute('SET foreign_key_checks = 1;');
+
     }
 
     /**
@@ -45,7 +45,7 @@ class m180718_074017_suhanatahir extends Migration
      */
     public function safeDown()
     {
-        echo "m180718_074017_suhanatahir cannot be reverted.\n";
+        echo "m180718_072104_test cannot be reverted.\n";
 
         return false;
     }
@@ -59,7 +59,7 @@ class m180718_074017_suhanatahir extends Migration
 
     public function down()
     {
-        echo "m180718_074017_suhanatahir cannot be reverted.\n";
+        echo "m180718_072104_test cannot be reverted.\n";
 
         return false;
     }
