@@ -25,8 +25,6 @@ p2m\assets\MorrisAsset::register($this);
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
-
-
     <?= $form->field($model, 'id_bahagian')->dropDownList([
         ArrayHelper::map(\app\models\Bahagian::find()->all(), 'id', 'name')
     ]) ?>
