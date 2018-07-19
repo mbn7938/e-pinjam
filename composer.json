@@ -23,6 +23,7 @@
         "c006/yii2-migration-utility": "dev-master",
         "p2made/yii2-sb-admin-theme": "^2.5",
         "kartik-v/yii2-grid": "@dev",
+        "kartik-v/yii2-widgets": "*",
       "kartik-v/yii2-widget-datepicker": "@dev"
 
 

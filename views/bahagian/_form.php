@@ -1,7 +1,11 @@
 <?php
 
+
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+use kartik\widgets\DatePicker;
+
+
 
 p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
 p2m\assets\TimelineAsset::register($this);
@@ -19,7 +23,12 @@ p2m\assets\MorrisAsset::register($this);
 
     <?= $form->field($model, 'short_term')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created_at')->textInput(['type'=>'date']) ?>
+    <?= $form->field($model, 'created_at')->widget(DatePicker::classname(), [
+        'options' => ['placeholder' => 'Enter birth date ...'],
+        'pluginOptions' => [
+            'autoclose'=>true
+        ]
+    ]); ?>
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
