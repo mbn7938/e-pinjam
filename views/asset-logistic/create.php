@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\AssetLogistic */
 
-$this->title = Yii::t('app', 'Create Asset Logistic');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Asset Logistics'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Tambah Aset');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Senarai Aset'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="asset-logistic-create">

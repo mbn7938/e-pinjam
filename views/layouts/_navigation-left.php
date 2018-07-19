@@ -37,7 +37,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
 			) ?></li><!-- Dashboard -->
             <?php if(Yii::$app->user->can('admin')):?>
                 <li>
-                    <a href="#"><?= FA::fw('files-o') ?> Pengurusan Pengguna<?= $arrowIcon ?></a>
+                    <a href="#"><?= FA::fw('users') ?> Pengurusan Pengguna<?= $arrowIcon ?></a>
                     <?= MetisNav::widget([
                         'encodeLabels' => false,
                         'options' => ['class' => 'nav nav-second-level'],
@@ -49,7 +49,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
                     ]) ?>
                 </li><!-- Sample Pages -->
                 <li>
-                    <a href="#"><?= FA::fw('files-o') ?> Pengesahan Penyewaan<?= $arrowIcon ?></a>
+                    <a href="#"><?= FA::fw('check-circle') ?> Pengesahan Penyewaan<?= $arrowIcon ?></a>
                     <?= MetisNav::widget([
                         'encodeLabels' => false,
                         'options' => ['class' => 'nav nav-second-level'],
@@ -62,7 +62,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
                 </li><!-- Sample Pages -->
             <?php endif; ?>
             <li>
-                <a href="#"><?= FA::fw('address-card') ?> Pengurusan Aset<?= $arrowIcon ?></a>
+                <a href="#"><?= FA::fw('truck') ?> Pengurusan Aset<?= $arrowIcon ?></a>
                 <?= MetisNav::widget([
                     'encodeLabels' => false,
                     'options' => ['class' => 'nav nav-second-level'],
@@ -74,7 +74,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
                 ]) ?>
             </li><!-- Sample Pages -->
             <li>
-                <a href="#"><?= FA::fw('files-o') ?> Pengurusan Jenis Aset<?= $arrowIcon ?></a>
+                <a href="#"><?= FA::fw('book') ?> Pengurusan Jenis Aset<?= $arrowIcon ?></a>
                 <?= MetisNav::widget([
                     'encodeLabels' => false,
                     'options' => ['class' => 'nav nav-second-level'],
@@ -86,7 +86,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
                 ]) ?>
             </li><!-- Sample Pages -->
             <li>
-                <a href="#"><?= FA::fw('files-o') ?> Pengurusan Penyewaan<?= $arrowIcon ?></a>
+                <a href="#"><?= FA::fw('hotel') ?> Pengurusan Penyewaan<?= $arrowIcon ?></a>
                 <?= MetisNav::widget([
                     'encodeLabels' => false,
                     'options' => ['class' => 'nav nav-second-level'],
@@ -99,7 +99,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
             </li><!-- Sample Pages -->
 
             <li>
-                <a href="#"><?= FA::fw('files-o') ?> Bahagian<?= $arrowIcon ?></a>
+                <a href="#"><?= FA::fw('home') ?> Bahagian<?= $arrowIcon ?></a>
                 <?= MetisNav::widget([
                     'encodeLabels' => false,
                     'options' => ['class' => 'nav nav-second-level'],
@@ -124,7 +124,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
 
             </li><!-- Sample Pages -->
             <li>
-                <a href="#"><?= FA::fw('files-o') ?> Unit<?= $arrowIcon ?></a>
+                <a href="#"><?= FA::fw('twitch') ?> Unit<?= $arrowIcon ?></a>
                 <?= MetisNav::widget([
                     'encodeLabels' => false,
                     'options' => ['class' => 'nav nav-second-level'],
