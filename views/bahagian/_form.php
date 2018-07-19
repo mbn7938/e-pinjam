@@ -24,9 +24,10 @@ p2m\assets\MorrisAsset::register($this);
     <?= $form->field($model, 'short_term')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'created_at')->widget(DatePicker::classname(), [
-        'options' => ['placeholder' => 'Enter birth date ...'],
+        'options' => ['placeholder' => 'Masukkan Tarikh'],
         'pluginOptions' => [
-            'autoclose'=>true
+            'autoclose'=>true,
+            'format'=> 'yyyy/MM/DD'
         ]
     ]); ?>
 

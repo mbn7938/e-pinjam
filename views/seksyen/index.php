@@ -7,6 +7,10 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\SeksyenSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
+p2m\assets\TimelineAsset::register($this);
+p2m\assets\MorrisAsset::register($this);
+
 $this->title = 'Seksyen';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
