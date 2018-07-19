@@ -26,13 +26,7 @@ $config = [
                 ],
                 ],
             ],
-        'view' => [
-            'theme' => [
-                'pathMap' => [
-                    '@app/views/layouts' => '@vendor/p2made/yii2-sb-admin-theme/views/sb-admin-2/layouts',
-                ],
-            ],
-        ],
+
         'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => [
