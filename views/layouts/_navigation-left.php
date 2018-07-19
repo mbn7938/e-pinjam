@@ -42,7 +42,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
                     'options' => ['class' => 'nav nav-second-level'],
                     'items' => [
                         ['label' => 'Senarai Bahagian', 'url' => ['/bahagian/index', 'view' => 'List Bahagian']],
-                        ['label' => 'Senarai Bahagian', 'url' => ['/bahagian/index', 'view' => 'List Bahagian']],
+                        ['label' => 'Tambah Bahagian', 'url' => ['/bahagian/create', 'view' => 'List Bahagian']],
 
                     ],
                 ]) ?>
