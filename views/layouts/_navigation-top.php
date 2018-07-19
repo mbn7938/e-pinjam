@@ -79,8 +79,8 @@ $userMenu = array(
 	'dropDownCaret' => $dropDownCaret,
 	'url' => '#',
 	'items' => [
-		['url' => '#', 'label' => FA::i('user')->fixedWidth() . ' User Profile', 'encode' => false],
-		['url' => '#', 'label' => FA::i('gear')->fixedWidth() . ' Settings', 'encode' => false],
+		['url' => ['/user/profile'], 'label' => FA::i('user')->fixedWidth() . ' User Profile', 'encode' => false],
+		['url' => ['/user/account'], 'label' => FA::i('gear')->fixedWidth() . ' Settings', 'encode' => false],
 		'<li class="divider"></li>',
 		//['url' => '#', 'label' => FA::i('sign-out')->fixedWidth() . ' Logout', 'encode' => false],
 	],
