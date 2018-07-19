@@ -20,7 +20,9 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "amnah/yii2-user": "^5.0",
         "kartik-v/yii2-widget-select2": "@dev",
-        "c006/yii2-migration-utility": "dev-master"
+        "c006/yii2-migration-utility": "dev-master",
+        "p2made/yii2-sb-admin-theme": "^2.5"
+
 
     },
     "require-dev": {
