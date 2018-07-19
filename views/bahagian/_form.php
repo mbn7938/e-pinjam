@@ -7,9 +7,7 @@ use kartik\widgets\DatePicker;
 
 
 
-p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
-p2m\assets\TimelineAsset::register($this);
-p2m\assets\MorrisAsset::register($this);
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Bahagian */
 /* @var $form yii\widgets\ActiveForm */

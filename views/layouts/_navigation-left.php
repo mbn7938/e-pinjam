@@ -58,6 +58,20 @@ $arrowIcon = FA::i('arrow')->tag('span');
 
                     ],
                 ]) ?>
+
+            </li><!-- Sample Pages -->
+            <li>
+                <a href="#"><?= FA::fw('files-o') ?> Unit<?= $arrowIcon ?></a>
+                <?= MetisNav::widget([
+                    'encodeLabels' => false,
+                    'options' => ['class' => 'nav nav-second-level'],
+                    'items' => [
+                        ['label' => 'Senarai Unit', 'url' => ['/unit/index', 'view' => 'List Bahagian']],
+                        ['label' => 'Tambah Unit', 'url' => ['/unit/create', 'view' => 'List Bahagian']],
+
+                    ],
+                ]) ?>
+
             </li><!-- Sample Pages -->
 			<li>
 				<a href="#"><?= FA::fw('coffee') ?> Developer<?= $arrowIcon ?></a>
