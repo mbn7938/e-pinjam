@@ -1,6 +1,6 @@
 <?php
 /**
- * login.php
+ * signup.php
  *
  * @author Pedro Plowman
  * @copyright Copyright &copy; Pedro Plowman, 2017
@@ -18,14 +18,19 @@ use p2m\helpers\BSocial;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-$this->title = 'Login';
+$this->title = 'Signup';
 
 $fieldOptions1 = [
 	'options' => ['class' => 'form-group has-feedback', 'autofocus' => 'autofocus'],
-	'inputTemplate' => "{input}<i class='glyphicon glyphicon-envelope form-control-feedback'></i>",
+	'inputTemplate' => "{input}<i class='glyphicon glyphicon-user form-control-feedback'></i>",
 ];
 
 $fieldOptions2 = [
+	'options' => ['class' => 'form-group has-feedback'],
+	'inputTemplate' => "{input}<i class='glyphicon glyphicon-envelope form-control-feedback'></i>",
+];
+
+$fieldOptions3 = [
 	'options' => ['class' => 'form-group has-feedback'],
 	'inputTemplate' => "{input}<i class='glyphicon glyphicon-lock form-control-feedback'></i>",
 ];
@@ -37,10 +42,10 @@ $fieldOptions2 = [
 	<div class="sb-box-body panel panel-default">
 		<div class="panel-body">
 
-			<p class="sb-box-msg">Login to start your session</p>
+			<p class="sb-box-msg">Signup for membership</p>
 
 			<?php $form = ActiveForm::begin([
-				'id' => 'login-form',
+				'id' => 'form-signup',
 				'enableClientValidation' => false
 			]); ?>
 
@@ -49,23 +54,23 @@ $fieldOptions2 = [
 					->label(false)
 					->textInput(['placeholder' => $model->getAttributeLabel('username')])
 				?>
-
 				<?= $form
-					->field($model, 'password', $fieldOptions2)
+					->field($model, 'email', $fieldOptions2)
+					->label(false)
+					->textInput(['placeholder' => $model->getAttributeLabel('email')])
+				?>
+				<?= $form
+					->field($model, 'password', $fieldOptions3)
 					->label(false)
 					->passwordInput(['placeholder' => $model->getAttributeLabel('password')])
 				?>
-
 				<div class="row">
 					<div class="col-xs-8">
-						<?= $form->field($model, 'rememberMe')->checkbox() ?>
-					</div>
+						<!-- < ?= $form->field($model, 'rememberMe')->checkbox() ?> -->
+					</div><!-- /.col -->
 					<div class="col-xs-4">
-						<?= Html::submitButton('Login', [
-							'class' => 'btn btn-primary btn-block btn-flat',
-							'name' => 'login-button'
-						]) ?>
-					</div>
+						<?= Html::submitButton('Signup', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'signup-button']) ?>
+					</div><!-- /.col -->
 				</div>
 
 			<?php ActiveForm::end(); ?>
@@ -73,10 +78,10 @@ $fieldOptions2 = [
 			<div class="social-auth-links text-center">
 				<p>- OR -</p>
 				<a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
-					<i class="fa fa-facebook"></i> Login using Facebook
+					<i class="fa fa-facebook"></i> Signup using Facebook
 				</a>
 				<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat">
-					<i class="fa fa-google-plus"></i> Login using Google+
+					<i class="fa fa-google-plus"></i> Signup using Google+
 				</a>
 			</div>
 
