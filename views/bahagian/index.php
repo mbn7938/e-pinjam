@@ -7,10 +7,6 @@ use kartik\grid\GridView;
 /* @var $searchModel app\models\BahagianSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
-p2m\assets\TimelineAsset::register($this);
-p2m\assets\MorrisAsset::register($this);
-
 
 $this->title = 'Department';
 $this->params['breadcrumbs'][] = $this->title;

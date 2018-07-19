@@ -36,6 +36,56 @@ $arrowIcon = FA::i('arrow')->tag('span');
 				Yii::$app->homeUrl
 			) ?></li><!-- Dashboard -->
             <li>
+                <a href="#"><?= FA::fw('address-card') ?> Pengurusan Aset<?= $arrowIcon ?></a>
+                <?= MetisNav::widget([
+                    'encodeLabels' => false,
+                    'options' => ['class' => 'nav nav-second-level'],
+                    'items' => [
+                        ['label' => 'Senarai Aset', 'url' => ['/asset-logistic/index', 'view' => 'List Bahagian']],
+                        ['label' => 'Tambah Aset', 'url' => ['/asset-logistic/create', 'view' => 'List Bahagian']],
+
+                    ],
+                ]) ?>
+            </li><!-- Sample Pages -->
+            <li>
+                <a href="#"><?= FA::fw('files-o') ?> Pengurusan Jenis Aset<?= $arrowIcon ?></a>
+                <?= MetisNav::widget([
+                    'encodeLabels' => false,
+                    'options' => ['class' => 'nav nav-second-level'],
+                    'items' => [
+                        ['label' => 'Senarai Jenis Aset', 'url' => ['/asset-type/index', 'view' => 'List Bahagian']],
+                        ['label' => 'Tambah Jenis Aset', 'url' => ['/asset-type/create', 'view' => 'List Bahagian']],
+
+                    ],
+                ]) ?>
+            </li><!-- Sample Pages -->
+            <li>
+                <a href="#"><?= FA::fw('files-o') ?> Pengurusan Penyewaan<?= $arrowIcon ?></a>
+                <?= MetisNav::widget([
+                    'encodeLabels' => false,
+                    'options' => ['class' => 'nav nav-second-level'],
+                    'items' => [
+                        ['label' => 'Senarai Penyewaan', 'url' => ['/rent-transaction/index', 'view' => 'List Bahagian']],
+                       // ['label' => 'Tambah Penyewaan', 'url' => ['/rent-transaction/create', 'view' => 'List Bahagian']],
+
+                    ],
+                ]) ?>
+            </li><!-- Sample Pages -->
+            <?php if(Yii::$app->user->can('admin')):?>
+                <li>
+                    <a href="#"><?= FA::fw('files-o') ?> Pengesahan Penyewaan<?= $arrowIcon ?></a>
+                    <?= MetisNav::widget([
+                        'encodeLabels' => false,
+                        'options' => ['class' => 'nav nav-second-level'],
+                        'items' => [
+                            ['label' => 'Senarai Penyewaan', 'url' => ['/rent-transaction-approval/index', 'view' => 'List Bahagian']],
+                            // ['label' => 'Tambah Penyewaan', 'url' => ['/rent-transaction/create', 'view' => 'List Bahagian']],
+
+                        ],
+                    ]) ?>
+                </li><!-- Sample Pages -->
+            <?php endif; ?>
+            <li>
                 <a href="#"><?= FA::fw('files-o') ?> Bahagian<?= $arrowIcon ?></a>
                 <?= MetisNav::widget([
                     'encodeLabels' => false,
@@ -48,7 +98,7 @@ $arrowIcon = FA::i('arrow')->tag('span');
                 ]) ?>
             </li><!-- Sample Pages -->
             <li>
-                <a href="#"><?= FA::fw('files-o') ?> Seksyen<?= $arrowIcon ?></a>
+                <a href="#"><?= FA::fw('briefcase') ?> Seksyen<?= $arrowIcon ?></a>
                 <?= MetisNav::widget([
                     'encodeLabels' => false,
                     'options' => ['class' => 'nav nav-second-level'],
