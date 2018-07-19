@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
 
 p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
@@ -24,9 +25,10 @@ p2m\assets\MorrisAsset::register($this);
 
     <?= $form->field($model, 'updated_at')->textInput() ?>
 
+
+
     <?= $form->field($model, 'id_bahagian')->dropDownList([
-            '1'=>'Bahagian Pengurusan Maklumat',
-        '2'=>'Bahagian Kewangan'
+        ArrayHelper::map(\app\models\Bahagian::find()->all(), 'id', 'name')
     ]) ?>
 
     <div class="form-group">
