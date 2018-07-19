@@ -7,7 +7,14 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\BahagianSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Bahagian';
+p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
+p2m\assets\TimelineAsset::register($this);
+p2m\assets\MorrisAsset::register($this);
+
+// DEMO ONLY _DON'T_ use this in your production copy.
+p2m\demo\assets\MorrisDemoData::register($this);
+
+$this->title = 'Department';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="bahagian-index">

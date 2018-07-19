@@ -12,6 +12,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+
 $layout = 'primary';
 
 if (Yii::$app->controller->action->id === 'login') {

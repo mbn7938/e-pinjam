@@ -16,6 +16,7 @@ use yii\bootstrap\Html;
 
 p2m\sbAdmin\assets\SBAdmin2UserAsset::register($this);
 p2m\assets\BootstrapSocialAsset::register($this);
+//app\assets\AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

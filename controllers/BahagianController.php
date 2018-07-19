@@ -14,6 +14,25 @@ use yii\filters\VerbFilter;
  */
 class BahagianController extends Controller
 {
+
+    /**
+     * {@inheritdoc}
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
+            'page' => [
+                'class' => 'yii\web\ViewAction',
+            ]
+        ];
+    }
     /**
      * {@inheritdoc}
      */
@@ -29,6 +48,8 @@ class BahagianController extends Controller
         ];
     }
 
+
+
     /**
      * Lists all Bahagian models.
      * @return mixed
@@ -37,6 +58,8 @@ class BahagianController extends Controller
     {
         $searchModel = new BahagianSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        //$this->layout = '@app/views/layouts/main';
 
         return $this->render('index', [
             'searchModel' => $searchModel,
