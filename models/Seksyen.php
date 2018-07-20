@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%seksyen}}".
+ * This is the model class for table "seksyen".
  *
  * @property int $id
  * @property string $name
@@ -13,6 +13,9 @@ use Yii;
  * @property string $created_at
  * @property string $updated_at
  * @property int $id_bahagian
+ *
+ * @property Bahagian $bahagian
+ * @property Unit[] $units
  */
 class Seksyen extends \yii\db\ActiveRecord
 {
@@ -21,7 +24,7 @@ class Seksyen extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%seksyen}}';
+        return 'seksyen';
     }
 
     /**
@@ -35,6 +38,7 @@ class Seksyen extends \yii\db\ActiveRecord
             [['id_bahagian'], 'integer'],
             [['name'], 'string', 'max' => 250],
             [['short_term'], 'string', 'max' => 100],
+            [['id_bahagian'], 'exist', 'skipOnError' => true, 'targetClass' => Bahagian::className(), 'targetAttribute' => ['id_bahagian' => 'id']],
         ];
     }
 
@@ -44,13 +48,29 @@ class Seksyen extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'short_term' => Yii::t('app', 'Short Term'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'id_bahagian' => Yii::t('app', 'Id Bahagian'),
+            'id' => 'ID',
+            'name' => 'Name',
+            'short_term' => 'Short Term',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'id_bahagian' => 'Id Bahagian',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getBahagian()
+    {
+        return $this->hasOne(Bahagian::className(), ['id' => 'id_bahagian']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUnits()
+    {
+        return $this->hasMany(Unit::className(), ['id_seksyen' => 'id']);
     }
 
     /**

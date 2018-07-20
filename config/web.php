@@ -58,7 +58,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'class' => 'amnah\yii2\user\components\User',
+            'class' => '\app\modules\user\components\User',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -91,8 +91,7 @@ $config = [
     ],
     'modules' => [
         'user' => [
-            'class' => 'amnah\yii2\user\Module',
-            // set custom module properties here ...
+            'class' => 'app\modules\user\Module',
         ],
         'utility' => [
             'class' => 'c006\utility\migration\Module',

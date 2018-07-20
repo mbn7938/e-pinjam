@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%unit}}".
+ * This is the model class for table "unit".
  *
  * @property int $id
  * @property string $name
@@ -13,6 +13,8 @@ use Yii;
  * @property string $created_at
  * @property string $updates_at
  * @property int $id_seksyen
+ *
+ * @property Seksyen $seksyen
  */
 class Unit extends \yii\db\ActiveRecord
 {
@@ -21,7 +23,7 @@ class Unit extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%unit}}';
+        return 'unit';
     }
 
     /**
@@ -34,6 +36,7 @@ class Unit extends \yii\db\ActiveRecord
             [['created_at', 'updates_at'], 'safe'],
             [['id_seksyen'], 'integer'],
             [['name', 'short_term'], 'string', 'max' => 255],
+            [['id_seksyen'], 'exist', 'skipOnError' => true, 'targetClass' => Seksyen::className(), 'targetAttribute' => ['id_seksyen' => 'id']],
         ];
     }
 
@@ -43,13 +46,21 @@ class Unit extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'short_term' => Yii::t('app', 'Short Term'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updates_at' => Yii::t('app', 'Updates At'),
-            'id_seksyen' => Yii::t('app', 'Id Seksyen'),
+            'id' => 'ID',
+            'name' => 'Name',
+            'short_term' => 'Short Term',
+            'created_at' => 'Created At',
+            'updates_at' => 'Updates At',
+            'id_seksyen' => 'Id Seksyen',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSeksyen()
+    {
+        return $this->hasOne(Seksyen::className(), ['id' => 'id_seksyen']);
     }
 
     /**

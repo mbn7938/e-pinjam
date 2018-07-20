@@ -34,6 +34,11 @@ $config = [
         ],
     ],
     */
+    'modules' => [
+        'user' => [
+            'class' => 'amnah\yii2\user\Module',
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
