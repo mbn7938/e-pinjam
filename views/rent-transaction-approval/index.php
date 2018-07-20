@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
+
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\RentTransactionSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -23,10 +24,33 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'user_id',
-            'asset_id',
-            'status_id',
+
+
+            [
+                'attribute'=>'user_id',
+                'value'=> function($model)
+                {
+                    return $model->user->profile->full_name;
+                }
+            ],
+            [
+                'attribute'=>'asset_id',
+                'value'=> function($model)
+                {
+                    return $model->asset->name;
+                }
+            ],
+
+            [
+                'attribute' => 'status_id',
+                'label' => 'Status',
+                'format'=> 'html',
+                'value' => function($model){
+                    return '<span class="label label-'.
+                        $model->status->class.'">'.$model->status->name.'</span>';
+                }
+
+            ],
             'created_at',
             //'updated_at',          
 
@@ -35,13 +59,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header' => 'Tindakan',
                 'buttons' => [
                     'approve' => function ($url, $model, $key) {
-                        if($model->status_id == 3){
-                            return Html::a ( 'Lulus', [Url::to('rent-transaction-approval/approve?id='.$model->id)]);
+                        if ($model->status_id == 3) {
+                            return Html::a('Lulus', [Url::to('rent-transaction-approval/approve?id=' . $model->id)]);
                         }
                     },
                     'reject' => function ($url, $model, $key) {
-                        if($model->status_id == 3){
-                            return Html::a ( 'Batal', [Url::to('rent-transaction-approval/reject?id='.$model->id)]);
+                        if ($model->status_id == 3) {
+                            return Html::a('Batal', [Url::to('rent-transaction-approval/reject?id=' . $model->id)]);
                         }
                     },
                 ],

@@ -1,8 +1,11 @@
 <?php
 
+use kartik\depdrop\DepDrop;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+
+use yii\helpers\Url;
 
 /**
  * @var yii\web\View $this
@@ -20,6 +23,7 @@ $role = $module->model("Role");
 <div class="user-form">
 
     <?php $form = ActiveForm::begin([
+        'id' => 'register-form',
         'enableAjaxValidation' => true,
     ]); ?>
 
@@ -34,14 +38,33 @@ $role = $module->model("Role");
     <?= $form->field($user, 'role_id')->dropDownList($role::dropdown()); ?>
 
     <?php
-    $dataCategory=ArrayHelper::map(\app\models\Bahagian::find()->asArray()->all(), 'id', 'name');
+    $dataCategory = ArrayHelper::map(\app\models\Bahagian::find()->asArray()->all(), 'id', 'name');
     ?>
 
+    <?= $form->field($user, 'unit_id')->dropDownList($dataCategory, [
+        'id' => 'cat_id',
+        'prompt' => 'Pilih Bahagian'
+    ])->label('Bahagian') ?>
 
 
-    <?= $form->field($user, 'unit_id')->dropDownList(
-        ArrayHelper::map(\app\models\Bahagian::find()->all(), 'id', 'name')
-    )->label('Bahagian') ?>
+    <?= $form->field($user, 'unit_id')->label('Seksyen')->widget(DepDrop::classname(), [
+        'options' => ['id' => 'subcat_id', 'placeholder' => 'Pilih Seksyen'],
+        'pluginOptions' => [
+            'depends' => ['cat_id'],
+            'placeholder' => 'Pilih Seksyen',
+            'url' => Url::to(['subcat'])
+        ]
+    ]) ?>
+
+
+    <?= $form->field($user, 'unit_id')->label('Unit')->widget(DepDrop::classname(), [
+        'options' => ['placeholder' => 'Pilih Unit'],
+        'pluginOptions' => [
+            'depends' => ['subcat_id'],
+            'placeholder' => 'Pilih Unit',
+            'url' => Url::to(['prod'])
+        ]
+    ]) ?>
 
     <?= $form->field($user, 'status')->dropDownList($user::statusDropdown()); ?>
 

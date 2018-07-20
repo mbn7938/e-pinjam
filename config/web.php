@@ -31,25 +31,7 @@ $config = [
                 ],
             ],
 
-        'assetManager' => [
-            'bundles' => [
-                'yii\web\JqueryAsset' => [
-                    'sourcePath' => null, 'js' => [],
-                ],
-                'yii\bootstrap\BootstrapAsset' => [
-                    'sourcePath' => null, 'css' => [],
-                ],
-                'yii\bootstrap\BootstrapPluginAsset' => [
-                    'sourcePath' => null, 'js' => [],
-                ],
-                'yii\jui\JuiAsset' => [
-                    'sourcePath' => null, 'css' => [], 'js' => [],
-                ],
-                '\rmrevin\yii\fontawesome\AssetBundle' => [
-                    'sourcePath' => null, 'css' => [],
-                ],
-            ],
-        ],
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'UpypYycyEAAZNX2TCFpSP6HX33nZtpRv',

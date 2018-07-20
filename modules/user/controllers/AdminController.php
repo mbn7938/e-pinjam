@@ -2,8 +2,12 @@
 
 namespace app\modules\user\controllers;
 
+use app\models\Seksyen;
+use app\models\Unit;
 use Yii;
 use app\modules\user\models\User;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
@@ -183,4 +187,59 @@ class AdminController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionSubcat() {
+        $out = [];
+        if (isset($_POST['depdrop_parents'])) {
+            $parents = $_POST['depdrop_parents'];
+            if ($parents != null) {
+                $cat_id = $parents[0];
+                $out = self::getSubCatList($cat_id);
+                // the getSubCatList function will query the database based on the
+                // cat_id and return an array like below:
+                // [
+                //    ['id'=>'<sub-cat-id-1>', 'name'=>'<sub-cat-name1>'],
+                //    ['id'=>'<sub-cat_id_2>', 'name'=>'<sub-cat-name2>']
+                // ]
+                return Json::encode(['output'=>$out, 'selected'=>'']);
+
+            }
+        }
+        return Json::encode(['output'=>'', 'selected'=>'']);
+    }
+
+    public function actionProd() {
+        $out = [];
+        if (isset($_POST['depdrop_parents'])) {
+            $parents = $_POST['depdrop_parents'];
+            if ($parents != null) {
+                $subcat_id = $parents[0];
+                $out = self::getProdList($subcat_id);
+                // the getSubCatList function will query the database based on the
+                // cat_id and return an array like below:
+                // [
+                //    ['id'=>'<sub-cat-id-1>', 'name'=>'<sub-cat-name1>'],
+                //    ['id'=>'<sub-cat_id_2>', 'name'=>'<sub-cat-name2>']
+                // ]
+                return Json::encode(['output'=>$out, 'selected'=>'']);
+
+            }
+        }
+        return Json::encode(['output'=>'', 'selected'=>'']);
+    }
+
+    public static function getSubCatList($cat_id)
+    {
+
+        return Seksyen::find()->select(['id', 'name'])
+            ->where(['id_bahagian' => $cat_id])->asArray()->all();
+
+    }
+
+    public static function getProdList($subcat_id)
+    {
+        return Unit::find()->select(['id', 'name'])
+            ->where(['id_seksyen' => $subcat_id])->asArray()->all();
+    }
+
 }

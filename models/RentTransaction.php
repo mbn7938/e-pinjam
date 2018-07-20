@@ -52,9 +52,9 @@ class RentTransaction extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'asset_id' => Yii::t('app', 'Asset ID'),
-            'status_id' => Yii::t('app', 'Status ID'),
+            'user_id' => Yii::t('app', 'Nama Penyewa'),
+            'asset_id' => Yii::t('app', 'Aset Dipinjam'),
+            'status_id' => Yii::t('app', 'Status'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];

@@ -113,6 +113,8 @@ class User extends ActiveRecord implements IdentityInterface
             [['role_id', 'status','unit_id'], 'integer', 'on' => ['admin']],
             [['banned_at'], 'integer', 'on' => ['admin']],
             [['banned_reason'], 'string', 'max' => 255, 'on' => 'admin'],
+
+            //[['cat','subcat','prod'],'safe']
         ];
 
         // add required for currentPassword on account page

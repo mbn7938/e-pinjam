@@ -12,9 +12,10 @@
 use yii\widgets\Breadcrumbs;
 use p2m\widgets\Alert;
 
-p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
-p2m\assets\TimelineAsset::register($this);
-p2m\assets\MorrisAsset::register($this);
+//p2m\sbAdmin\assets\SBAdmin2Asset::register($this);
+//p2m\assets\TimelineAsset::register($this);
+//p2m\assets\MorrisAsset::register($this);
+\app\assets\AppAsset::register($this);
 ?>
 <div id="page-wrapper">
 	<div class="container-fluid">

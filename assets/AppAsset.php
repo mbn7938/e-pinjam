@@ -25,7 +25,9 @@ class AppAsset extends AssetBundle
     public $js = [
     ];
     public $depends = [
-        //'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        'p2m\sbAdmin\assets\SBAdmin2Asset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+
     ];
 }
